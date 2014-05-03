@@ -5,7 +5,7 @@ alchemyapi = AlchemyAPI()
 
 tweets = []
 
-def get():
+def get(num,tweettype,query):
     config = {}
     execfile("config.conf", config)
     auth = tweepy.OAuthHandler(config["consumer_key"], config["consumer_secret"])
@@ -17,14 +17,14 @@ def get():
     tweets = []
 
     jsonout = '['
-    for tweet in api.search(q='#HackCincy',result_type='recent',count='25'):
+    for tweet in api.search(q=query,result_type=tweettype,count=num):
         try:
             if not ('RT @' in tweet.text):
                 sentimentvalue = alchemyapi.sentiment("text", tweet.text)
 
                 if tweet.coordinates is not None:
-                    lat = tweet.coordinates['coordinates'][1]
-                    lng = tweet.coordinates['coordinates'][0]
+                    lat = tweet.coordinates.coordinates[1]
+                    lng = tweet.coordinates.coordinates[0]
                 else:
                     lat = 0
                     lng = 0
