@@ -16,12 +16,14 @@ def hello():
 
     num = request.args.get('number')
     tweettype =  request.args.get('type')
-    query = request.args.get('query')
+    query = request.args.get('hashtag')
     if num == None:
         num =0
     if tweettype == None:
         tweettype = 'recent'
     if query == None:
-        query = '#hackcincy'
+        query = 'hackcincy'
+    else:
+        query = '#' + query
     # return redirect(url_for('static', filename='example.txt'))
     return get_tweets.get(num,tweettype,query)
