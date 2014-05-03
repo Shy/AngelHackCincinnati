@@ -1,1 +1,114 @@
-[{"user":"codersandy","tweet": ""I don't think beer and coding mix..." "Clearly you're not a programmer!" #hackcincy","created_at":"2014-05-03 19:22:11","sentimentvalue":-0.10237,"lat":0,"lng":0},{"user":"AngelHackCincy","tweet": "Apologies for the internet issues but we should be all clear now! #hackcincy","created_at":"2014-05-03 19:19:14","sentimentvalue":-0.0455995,"lat":0,"lng":0},{"user":"davidjwoody","tweet": "Meteor.js at #hackcincy is a hit! @meteorjs #js #javascript","created_at":"2014-05-03 18:44:17","sentimentvalue":0.377142,"lat":0,"lng":0},{"user":"codersandy","tweet": "Someone is playing Dark Souls. #hackcincy","created_at":"2014-05-03 18:24:24","sentimentvalue":-0.445016,"lat":0,"lng":0},{"user":"angiegrossmann","tweet": "Having a good time learning about meteor #hackcincy @AngelHackCincy","created_at":"2014-05-03 18:01:07","sentimentvalue":0.477554,"lat":0,"lng":0},{"user":"codersandy","tweet": "internet here is somewhat flaky #hackcincy","created_at":"2014-05-03 17:41:07","sentimentvalue":-0.770325,"lat":0,"lng":0},{"user":"AngelHackCincy","tweet": "Lunch has arrived! Pizza in the main area and drinks in the fridges. #hackcincy","created_at":"2014-05-03 15:54:36","sentimentvalue":0.28769,"lat":0,"lng":0},{"user":"kicksopenminds","tweet": "Should we write tests in Django? #hackcincy http://t.co/9C35CIMH0d","created_at":"2014-05-03 15:47:06","sentimentvalue":0.0863845,"lat":0,"lng":0},{"user":"davidjfelix","tweet": "@AngelHackCincy https://t.co/9T0UnaHpzv Hot pizza in your area. #hackcincy","created_at":"2014-05-03 15:13:29","sentimentvalue":0.308197,"lat":0,"lng":0},{"user":"magicjj","tweet": "Good turnout at AngelHack #hackcincy","created_at":"2014-05-03 14:25:59","sentimentvalue":0.392276,"lat":0,"lng":0},{"user":"catheraaine","tweet": "Excited! #hackcincy @AngelHackCincy @abohw @justinboh @jen_kowal","created_at":"2014-05-03 14:21:01","sentimentvalue":0.76582,"lat":0,"lng":0},{"user":"dodgotcha","tweet": "@AngelHackCincy excited to be at #hackcincy!","created_at":"2014-05-03 14:19:26","sentimentvalue":0.746235,"lat":0,"lng":0},{"user":"codersandy","tweet": "No beer until 5pm? THANKS CORPORATE AMERICA! #hackcincy","created_at":"2014-05-03 14:19:03","sentimentvalue":0.218806,"lat":0,"lng":0},{"user":"john_dry","tweet": "My first hackathon ever. Not my last. #hackcincy","created_at":"2014-05-03 14:16:04","sentimentvalue":0.131979,"lat":0,"lng":0},{"user":"kicksopenminds","tweet": "#hackcincy let's do this @davidjfelix @laanak08","created_at":"2014-05-03 14:03:59","sentimentvalue":0.50917,"lat":0,"lng":0},{"user":"AngelHackCincy","tweet": "The room is packed! #hackcincy http://t.co/IXIYjmmVPg","created_at":"2014-05-03 13:54:28","sentimentvalue":0.161449,"lat":0,"lng":0},{"user":"securityr4sh","tweet": "At @AngelHackCincy with my bud shazafar looking forward to an exciting day!! #hackcincy http://t.co/ezH0GBoBgh","created_at":"2014-05-03 13:52:01","sentimentvalue":0.50584,"lat":0,"lng":0},{"user":"AngelHackCincy","tweet": "This guy is ready for AngelHack! #hackcincy http://t.co/wxOVMrWRKX","created_at":"2014-05-03 13:18:53","sentimentvalue":0.250275,"lat":0,"lng":0},{"user":"davidjfelix","tweet": "@AngelHackCincy ladies and gentlemen, start your EC2 instances. #hackcincy","created_at":"2014-05-03 13:09:48","sentimentvalue":0.40757,"lat":0,"lng":0}]
+[
+  {
+    "sentimentvalue": "0.67077",
+    "text": "Clearly I'm testing the sanitization methods in our twitter api #hackcincy",
+    "created_at": "2014-05-03 21:56:57",
+    "user": "codersandy",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "0.337778",
+    "text": "The only place you can order Skyline Chili and beer together! #hackcincy http://t.co/J5BYso0Gq3",
+    "created_at": "2014-05-03 21:37:49",
+    "user": "AngelHackCincy",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "0.152917",
+    "text": "storming and forming #teachme #hackCincy @AngelHackCincy",
+    "created_at": "2014-05-03 21:30:03",
+    "user": "angiegrossmann",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "-0.037237",
+    "text": "Probably the only place in the WORLD where guys have to wait in line to use the bathroom. No line for the ladies' room here :) #hackCincy",
+    "created_at": "2014-05-03 19:54:02",
+    "user": "angiegrossmann",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "0.55692",
+    "text": "Pre-talk audience pic at my meteorjs talk at @AngelHackCincy #hackcincy #hackathon http://t.co/z3oUCPMbP3",
+    "created_at": "2014-05-03 19:50:47",
+    "user": "hellogerard",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "-0.10237",
+    "text": "\"I don't think beer and coding mix...\" \n\"Clearly you're not a programmer!\"\n\n#hackcincy",
+    "created_at": "2014-05-03 19:22:11",
+    "user": "codersandy",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "-0.0455995",
+    "text": "Apologies for the internet issues but we should be all clear now! #hackcincy",
+    "created_at": "2014-05-03 19:19:14",
+    "user": "AngelHackCincy",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "0.377142",
+    "text": "Meteor.js at #hackcincy is a hit! @meteorjs #js #javascript",
+    "created_at": "2014-05-03 18:44:17",
+    "user": "davidjwoody",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "-0.445016",
+    "text": "Someone is playing Dark Souls. #hackcincy",
+    "created_at": "2014-05-03 18:24:24",
+    "user": "codersandy",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "0.477554",
+    "text": "Having a good time learning about meteor #hackcincy @AngelHackCincy",
+    "created_at": "2014-05-03 18:01:07",
+    "user": "angiegrossmann",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "-0.770325",
+    "text": "internet here is somewhat flaky #hackcincy",
+    "created_at": "2014-05-03 17:41:07",
+    "user": "codersandy",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "0.28769",
+    "text": "Lunch has arrived! Pizza in the main area and drinks in the fridges. #hackcincy",
+    "created_at": "2014-05-03 15:54:36",
+    "user": "AngelHackCincy",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "0.0863845",
+    "text": "Should we write tests in Django? #hackcincy\nhttp://t.co/9C35CIMH0d",
+    "created_at": "2014-05-03 15:47:06",
+    "user": "kicksopenminds",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "0.308197",
+    "text": "@AngelHackCincy https://t.co/9T0UnaHpzv Hot pizza in your area. #hackcincy",
+    "created_at": "2014-05-03 15:13:29",
+    "user": "davidjfelix",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "0.392276",
+    "text": "Good turnout at AngelHack #hackcincy",
+    "created_at": "2014-05-03 14:25:59",
+    "user": "magicjj",
+    "coordinates": null
+  },
+  {
+    "sentimentvalue": "0.76582",
+    "text": "Excited! #hackcincy @AngelHackCincy @abohw @justinboh @jen_kowal",
+    "created_at": "2014-05-03 14:21:01",
+    "user": "catheraaine",
+    "coordinates": null
+  }
+]
