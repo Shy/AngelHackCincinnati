@@ -1,5 +1,7 @@
 import tweepy
 import sys
+from alchemyapi import AlchemyAPI
+alchemyapi = AlchemyAPI()
 
 tweets = []
 
@@ -32,8 +34,9 @@ def get():
 
     for item in tweets:
             try:
-                jsonout += '{"text": "' + str(item) + '"},'
                 tweets.remove(item)
+                sentimentvalue = alchemyapi.sentiment("text", item)
+                jsonout += '{"text": "' + str(item) + '","sentimentvalue","sentimentvalue":'+ str(sentimentvalue["docSentiment"]["score"]) +'},'
             except UnicodeError:
                 print "UnicodeError"
     jsonout = jsonout[:-1]+']'
