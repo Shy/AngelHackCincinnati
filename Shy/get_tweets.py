@@ -5,7 +5,6 @@ alchemyapi = AlchemyAPI()
 
 tweets = []
 
-
 def get():
     config = {}
     execfile("config.conf", config)
@@ -23,7 +22,7 @@ def get():
         try:
             if not ('RT @' in tweet.text):
                 sentimentvalue = alchemyapi.sentiment("text", tweet.text)
-                jsonout += '{"user":"'+str(tweet.user.screen_name)+ '","tweet": "' + str(tweet.text) + '","sentimentvalue":'+ str(sentimentvalue["docSentiment"]["score"]) +'},'
+                jsonout += '{"user":"'+str(tweet.user.screen_name)+ '","tweet": "' + str(tweet.text) +'","created_at":"'+ str(tweet.created_at) +'","sentimentvalue":'+ str(sentimentvalue["docSentiment"]["score"]) +'},'
         except:
             print sys.exc_info()[0]
 
