@@ -78,7 +78,7 @@ angular.module('bttr.controllers')
 
 function bttrController ($scope)
 {
-	
+	var stop=[];
 	$scope.drawchart=function(container,mtag,pos,neg)
 	{
 
@@ -252,7 +252,7 @@ function bttrController ($scope)
 				return {text: d, size: wordsize[d]* 30};
 			}))
 			.padding(0)
-			.rotate(function() { return ~~(Math.random() * 2) * 45; })
+			.rotate(function() { return ~~(Math.random() * 2) * 0; })
 			.font("Impact")
 			.fontSize(function(d) { return d.size; })
 			.on("end", draw)
@@ -296,7 +296,7 @@ function bttrController ($scope)
 				{
 					if(!isNaN(parseInt(elem)))
 						return true;
-					if(elem.length <2)
+					if(elem.length <4)
 						return true;
 					if(elem.charAt(0)==='#'||elem.charAt(0)==='@')
 					{
@@ -378,7 +378,7 @@ function bttrController ($scope)
 				return {text: d, size: wordsize[d]* 30};
 			}))
 			.padding(0)
-			.rotate(function() { return ~~(Math.random() * 2) * 45; })
+			.rotate(function() { return ~~(Math.random() * 2) * 0; })
 			.font("Impact")
 			.fontSize(function(d) { return d.size; })
 			.on("end", draw2)
