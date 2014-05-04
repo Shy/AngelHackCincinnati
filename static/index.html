@@ -30,11 +30,18 @@
     <![endif]-->
   </head>
   <body ng-controller="bttrController">
-
-<input ng-model="item1" /> <button ng-click="populate1(item1)">Get Sentiment</button>
+<div id="first">
+<input ng-model="item1" />
 <div id="cloud1" />
-  <div id="sent1" style="height: 300px; width: 300px;">
+  <div id="sent1" style="height: 300px; width: 300px;" />
 
+</div>
+<div id="second" >
+<input ng-model="item2" /> 
+<div id="cloud2" />
+  <div id="sent2" style="height: 300px; width: 300px;" />
 
+</div>
+ <button ng-click="populate1(item1,item2)">Get Sentiment</button>
   </body>
 </html>

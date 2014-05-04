@@ -747,8 +747,19 @@ function bttrController ($scope)
 			chart.render();
 	};
 
-	$scope.populate1 = function(tag)
+	$scope.populate1 = function(tag,tag2)
 	{
+		if(tag==="" && tag2==="")
+		{	alert("Please enter a value!");
+			return;
+		}
+
+		else if (tag==="")
+		{
+			tag=tag2;
+			tag2="";
+		}
+
 		var fill = d3.scale.category20();
 
 		//url = "http:/angelhackcincinnati.herokuapp.com/api?number=10&hashtag="+tag+"&callback=?";
@@ -877,6 +888,135 @@ function bttrController ($scope)
 
 
 		});
+
+		if(tag2!=="")
+		{
+			var url="http://angelhackcincinnati.herokuapp.com/apiexample?callback=?";
+		
+
+		function draw2(words) {
+			console.log("drawing");
+			$("#cloud1").children("svg").remove();
+			d3.select("#cloud2").append("svg")
+			.attr("width", 300)
+			.attr("height", 300)
+			.append("g")
+			.attr("transform", "translate(150,150)")
+			.selectAll("text")
+			.data(words)
+			.enter().append("text")
+			.style("font-size", function(d) { return d.size + "px"; })
+			.style("font-family", "Impact")
+			.style("fill", function(d, i) { return fill(i); })
+			.attr("text-anchor", "middle")
+			.attr("transform", function(d) {
+				return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+			})
+
+			.text(function(d) { return d.text; });
+		}
+		$.getJSON(url,function(data){
+			
+			var words=$.map(data,function(d,idx) {
+
+				var list=d.text.toLowerCase().split(" ");
+
+				return $.grep(list,function(elem,idx)
+				{
+					if(!isNaN(elem))
+						return false;
+					if(elem.length <2)
+						return false;
+					if(elem.charAt(0)==='#'||elem.charAt(0)==='@')
+					{
+						//ignore hashtags
+
+						return false;
+					}
+					if (elem.substr(0,4)==='http')
+					{
+						//ignore urls
+						return true;
+					}
+					return stop.some(function(f) 
+					{
+						return elem === f;
+					});
+
+				},true);
+
+				
+
+			});
+			var pcnt=0;
+			var ncnt=0;
+			var pos=data.reduce(function(previousValue, currentValue, index, array)
+			{
+				if(currentValue.sentimentvalue > 0)
+				{
+					pcnt++;
+					return previousValue+parseFloat(currentValue.sentimentvalue);
+				}
+				else return previousValue;
+			},0
+			);
+			var neg=data.reduce(function(previousValue, currentValue, index, array)
+			{
+				if(currentValue.sentimentvalue < 0)
+				{
+					ncnt++;
+					return previousValue+parseFloat(currentValue.sentimentvalue);
+				}
+				else return previousValue;
+
+			},0
+			);
+			pos/=(pcnt+ncnt);
+			neg/=(ncnt+pcnt);
+			console.log("pcnt: "+pcnt);
+			console.log ("ncnt: "+ncnt);
+			console.log("pos: " + pos);
+			console.log("neg: " + neg);
+			$scope.drawchart("sent2",tag,pos,neg);
+
+			var wordsize={};
+			$.each(words, function(i,sel)
+			{
+				if(sel.charAt(0)=='#')
+					sel = sel.substr(1);
+				if(isNaN(wordsize[sel])||wordsize[sel]===null)
+				{
+					wordsize[sel]=1;
+					
+				}	else
+					{
+						wordsize[sel]++;
+					}
+				console.log("sel: "+sel);
+				console.log("count: "+wordsize[sel]);
+			});
+			console.log(wordsize);
+			
+			uWords=words.filter(function(value,index,self)
+			{
+				 return self.indexOf(value) === index;
+			} 
+				);
+			console.log(words);
+			d3.layout.cloud().size([300, 300])
+			.words(uWords.map(function(d) {
+				return {text: d, size: wordsize[d]* 10};
+			}))
+			.padding(5)
+			.rotate(function() { return ~~(Math.random() * 2) * 90; })
+			.font("Impact")
+			.fontSize(function(d) { return d.size; })
+			.on("end", draw)
+			.start();
+
+
+		});
+		}
 };
 
 
