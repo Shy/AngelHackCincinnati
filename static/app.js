@@ -247,7 +247,7 @@ function bttrController ($scope)
 			}
 				);
 			console.log(words);
-			d3.layout.cloud().size([600, 300])
+			d3.layout.cloud().size([450, 300])
 			.words(uWords.map(function(d) {
 				return {text: d, size: wordsize[d]* 30};
 			}))
@@ -373,7 +373,7 @@ function bttrController ($scope)
 			}
 				);
 			console.log(words);
-			d3.layout.cloud().size([600, 300])
+			d3.layout.cloud().size([450, 300])
 			.words(uWords.map(function(d) {
 				return {text: d, size: wordsize[d]* 30};
 			}))
