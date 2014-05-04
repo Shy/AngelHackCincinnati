@@ -42,31 +42,56 @@
 
 <body ng-controller="bttrController">
   <div class="container-fluid">
-    <div class="row">
-      <h1 style="text-align: center;">is bett.er?</h1>
+    <div style="text-align: center;" class="row">
+      <h1 >is bett.er?</h1>
+    </div>
+
+    <div style="text-align: center;" class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <div id="first">
+          <div class="input-group">
+            <span class="input-group-addon">#</span>
+            <input class="form-control" ng-model="item1" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div id="second">
+          <div class="input-group">
+            <span class="input-group-addon">#</span>
+            <input class="form-control" ng-model="item2" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top:7" class="row">
+      <button class="btn btn-default" ng-click="populate1(item1,item2)"><span class="glyphicon glyphicon-star"></span> Get Sentiment</button>
+      <hr>
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
         <div id="first">
-          <input ng-model="item1" />
 
           <div id="cloud1"></div>
 
-          <div id="sent1" style="height: 300px; width: 350px;"></div>
+          <div id="sent1" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-5">
         <div id="second">
-          <input ng-model="item2" />
 
           <div id="cloud2"></div>
 
-          <div id="sent2" style="height: 300px; width: 350px;"></div>
+          <div id="sent2" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
+      <div class="col-md-1"></div>
     </div>
-  </div><button ng-click="populate1(item1,item2)">Get Sentiment</button>
+  </div>
 </body>
 </html>

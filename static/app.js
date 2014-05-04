@@ -16,7 +16,7 @@ angular.module('bttr.controllers')
 	$scope.wordcloud = function() {
 		console.log("test");
 		var fill = d3.scale.category20();
-		
+
 		var url="http://angelhackcincinnati.herokuapp.com/apiexample?callback=?";
 		$.getJSON(url,function(data){
 
@@ -721,9 +721,9 @@ function bttrController ($scope)
 	$scope.drawchart=function(container,mtag,pos,neg)
 	{
 
-			var chart = new CanvasJS.Chart(container, {            
+			var chart = new CanvasJS.Chart(container, {
 				title:{
-					text: "Sentiment"              
+					text: "Sentiment"
 				},
 				axisX:{
 					tickThickness:0,
@@ -737,8 +737,8 @@ function bttrController ($scope)
 					interval:0.25,
 					gridThickness:0,
 				},
-      data: [  //array of dataSeries     
-      { 
+      data: [  //array of dataSeries
+      {
       	type: "column",
       	name: "Positive",
       	color: "green",
@@ -746,11 +746,11 @@ function bttrController ($scope)
       	{ label:"+", y: pos },
       	]
       },
-      { 
+      {
 
       	type: "column",
       	name: "Negative",
-      	color:"red" ,               
+      	color:"red" ,
       	dataPoints: [
       	{ label: "-", y: neg },
       	]
@@ -777,7 +777,7 @@ function bttrController ($scope)
 
 		var url = "http:/angelhackcincinnati.herokuapp.com/api?number=10&hashtag="+tag+"&callback=?";
 		//var url="http://angelhackcincinnati.herokuapp.com/apiexample?callback=?";
-		
+
 
 		function draw(words) {
 			console.log("drawing");
@@ -800,7 +800,7 @@ function bttrController ($scope)
 			.text(function(d) { return d.text; });
 		}
 		$.getJSON(url,function(data){
-			
+
 			var words=$.map(data,function(d,idx) {
 
 				var list=d.text.toLowerCase().split(" ");
@@ -822,14 +822,14 @@ function bttrController ($scope)
 						//ignore urls
 						return true;
 					}
-					return stop.some(function(f) 
+					return stop.some(function(f)
 					{
 						return elem === f;
 					});
 
 				},true);
 
-				
+
 
 			});
 			var pcnt=0;
@@ -871,19 +871,19 @@ function bttrController ($scope)
 				if(isNaN(wordsize[sel])||wordsize[sel]===null)
 				{
 					wordsize[sel]=1;
-					
+
 				}	else
 					{
 						wordsize[sel]++;
 					}
-				
+
 			});
 			console.log(wordsize);
-			
+
 			uWords=words.filter(function(value,index,self)
 			{
 				 return self.indexOf(value) === index;
-			} 
+			}
 				);
 			console.log(words);
 			d3.layout.cloud().size([600, 300])
@@ -926,7 +926,7 @@ function bttrController ($scope)
 			.text(function(d) { return d.text; });
 		}
 		$.getJSON(url,function(data){
-			
+
 			var words=$.map(data,function(d,idx) {
 
 				var list=d.text.toLowerCase().split(" ");
@@ -948,14 +948,14 @@ function bttrController ($scope)
 						//ignore urls
 						return true;
 					}
-					return stop.some(function(f) 
+					return stop.some(function(f)
 					{
 						return elem === f;
 					});
 
 				},true);
 
-				
+
 
 			});
 			var pcnt=0;
@@ -997,19 +997,19 @@ function bttrController ($scope)
 				if(isNaN(wordsize[sel])||wordsize[sel]===null)
 				{
 					wordsize[sel]=1;
-					
+
 				}	else
 					{
 						wordsize[sel]++;
 					}
-	
+
 			});
 			console.log(wordsize);
-			
+
 			uWords=words.filter(function(value,index,self)
 			{
 				 return self.indexOf(value) === index;
-			} 
+			}
 				);
 			console.log(words);
 			d3.layout.cloud().size([600, 300])
