@@ -770,7 +770,7 @@ function bttrController ($scope)
 			console.log("drawing");
 			$("#cloud1").children("svg").remove();
 			d3.select("#cloud1").append("svg")
-			.attr("width", 300)
+			.attr("width", 600)
 			.attr("height", 300)
 			.append("g")
 			.attr("transform", "translate(150,150)")
@@ -792,12 +792,12 @@ function bttrController ($scope)
 
 				var list=d.text.toLowerCase().split(" ");
 
-				return $.grep(list,function(elem,idx)
+			return $.grep(list,function(elem,idx)
 				{
-					if(!isNaN(elem))
-						return false;
+					if(!isNaN(parseInt(elem)))
+						return true;
 					if(elem.length <2)
-						return false;
+						return true;
 					if(elem.charAt(0)==='#'||elem.charAt(0)==='@')
 					{
 						//ignore hashtags
@@ -873,12 +873,12 @@ function bttrController ($scope)
 			} 
 				);
 			console.log(words);
-			d3.layout.cloud().size([300, 300])
+			d3.layout.cloud().size([600, 300])
 			.words(uWords.map(function(d) {
-				return {text: d, size: wordsize[d]* 10};
+				return {text: d, size: wordsize[d]* 30};
 			}))
 			.padding(5)
-			.rotate(function() { return ~~(Math.random() * 2) * 90; })
+			.rotate(function() { return ~~(Math.random() * 2) * 45; })
 			.font("Impact")
 			.fontSize(function(d) { return d.size; })
 			.on("end", draw)
@@ -896,7 +896,7 @@ function bttrController ($scope)
 			console.log("drawing2");
 			$("#cloud2").children("svg").remove();
 			d3.select("#cloud2").append("svg")
-			.attr("width", 300)
+			.attr("width", 600)
 			.attr("height", 300)
 			.append("g")
 			.attr("transform", "translate(150,150)")
@@ -920,10 +920,10 @@ function bttrController ($scope)
 
 				return $.grep(list,function(elem,idx)
 				{
-					if(!isNaN(elem))
-						return false;
+					if(!isNaN(parseInt(elem)))
+						return true;
 					if(elem.length <2)
-						return false;
+						return true;
 					if(elem.charAt(0)==='#'||elem.charAt(0)==='@')
 					{
 						//ignore hashtags
@@ -999,12 +999,12 @@ function bttrController ($scope)
 			} 
 				);
 			console.log(words);
-			d3.layout.cloud().size([300, 300])
+			d3.layout.cloud().size([600, 300])
 			.words(uWords.map(function(d) {
-				return {text: d, size: wordsize[d]* 10};
+				return {text: d, size: wordsize[d]* 30};
 			}))
 			.padding(5)
-			.rotate(function() { return ~~(Math.random() * 2) * 90; })
+			.rotate(function() { return ~~(Math.random() * 2) * 45; })
 			.font("Impact")
 			.fontSize(function(d) { return d.size; })
 			.on("end", draw2)
