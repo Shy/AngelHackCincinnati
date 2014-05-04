@@ -123,6 +123,7 @@ function bttrController ($scope)
 
 	$scope.populate1 = function(tag,tag2)
 	{
+		var tag1data,tag2data;
 		if(!tag&& !tag2)
 		{	alert("Please enter a value!");
 			return;
@@ -147,7 +148,7 @@ function bttrController ($scope)
 			.attr("width", 600)
 			.attr("height", 300)
 			.append("g")
-			.attr("transform", "translate(150,150)")
+			.attr("transform", "translate(300,150)")
 			.selectAll("text")
 			.data(words)
 			.enter().append("text")
@@ -160,7 +161,7 @@ function bttrController ($scope)
 			})
 			.text(function(d) { return d.text; });
 		}
-		$.getJSON(url,function(data){
+		var async1=$.getJSON(url,function(data){
 
 			var words=$.map(data,function(d,idx) {
 
@@ -216,6 +217,7 @@ function bttrController ($scope)
 
 			},0
 			);
+			tag1data=(pos+neg)/(pcnt+ncnt);
 			pos/=(pcnt+ncnt);
 			neg/=(ncnt+pcnt);
 			console.log("pcnt: "+pcnt);
@@ -247,7 +249,7 @@ function bttrController ($scope)
 			}
 				);
 			console.log(words);
-			d3.layout.cloud().size([450, 300])
+			d3.layout.cloud().size([300, 300])
 			.words(uWords.map(function(d) {
 				return {text: d, size: wordsize[d]* 30};
 			}))
@@ -273,7 +275,7 @@ function bttrController ($scope)
 			.attr("width", 600)
 			.attr("height", 300)
 			.append("g")
-			.attr("transform", "translate(150,150)")
+			.attr("transform", "translate(300,150)")
 			.selectAll("text")
 			.data(words)
 			.enter().append("text")
@@ -286,7 +288,7 @@ function bttrController ($scope)
 			})
 			.text(function(d) { return d.text; });
 		}
-		$.getJSON(url,function(data){
+		var async2=$.getJSON(url,function(data){
 
 			var words=$.map(data,function(d,idx) {
 
@@ -342,6 +344,7 @@ function bttrController ($scope)
 
 			},0
 			);
+			tag2data=(pos+neg)/(pcnt+ncnt);
 			pos/=(pcnt+ncnt);
 			neg/=(ncnt+pcnt);
 			console.log("pcnt: "+pcnt);
@@ -373,7 +376,7 @@ function bttrController ($scope)
 			}
 				);
 			console.log(words);
-			d3.layout.cloud().size([450, 300])
+			d3.layout.cloud().size([300, 300])
 			.words(uWords.map(function(d) {
 				return {text: d, size: wordsize[d]* 30};
 			}))
@@ -387,6 +390,25 @@ function bttrController ($scope)
 
 		});
 		}
+		$.when(async2,async1).done(
+		function(result2,result1)
+		{
+			if(Math.abs(tag1data-tag2data) <0.01)
+			//	alert("too close to call");
+		{
+			;
+		}
+			else if (tag1data>tag2data)
+			{	$("#first input").css("background","77ff77");
+				$("#second input").css("background","ff7777");
+				}
+			else 
+			{
+				$("#first input").css("background","ff7777");
+				$("#second input").css("background","77ff77");
+			}
+		}
+		)
 };
 
 
