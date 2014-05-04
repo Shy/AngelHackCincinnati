@@ -7,7 +7,7 @@ alchemyapi = AlchemyAPI()
 
 tweets = []
 
-def get(num,tweettype,query):
+def get(num,tweettype,query,callback):
     config = {}
     execfile("config.conf", config)
     auth = tweepy.OAuthHandler(config["consumer_key"], config["consumer_secret"])
@@ -34,4 +34,8 @@ def get(num,tweettype,query):
 
     json_encoded = json.dumps(tweets,ensure_ascii=True)
 
-    return json_encoded
+    if callback != None:
+        return str(callback) + "(" + json_encoded+ ");"
+    else :
+        return json_encoded
+
