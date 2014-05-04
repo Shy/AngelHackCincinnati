@@ -732,8 +732,8 @@ function bttrController ($scope)
 				axisY:{
 					tickThickness:0,
 					lineThickness:0,
-					minimum:-1,
-					maximum:1,
+					minimum:-0.5,
+					maximum:0.5,
 					interval:0.25,
 					gridThickness:0,
 				},
@@ -743,7 +743,7 @@ function bttrController ($scope)
       	name: "Positive",
       	color: "green",
       	dataPoints: [
-      	{ label:"Positive", y: pos },
+      	{ label:"+", y: pos },
       	]
       },
       { 
@@ -752,7 +752,7 @@ function bttrController ($scope)
       	name: "Negative",
       	color:"red" ,               
       	dataPoints: [
-      	{ label: "Negative", y: neg },
+      	{ label: "-", y: neg },
       	]
       }
       ]
@@ -815,7 +815,7 @@ function bttrController ($scope)
 					{
 						//ignore hashtags
 
-						return false;
+						return true;
 					}
 					if (elem.substr(0,4)==='http')
 					{
