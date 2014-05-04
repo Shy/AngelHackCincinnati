@@ -1,70 +1,40 @@
-<html>
-<head>
+
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>is bett.er</title>
 	<script src="js/jquery-2.1.1.js"> </script>
 	<script src="js/d3.js"> </script>
 	<script src="js/d3.layout.cloud.js"> </script>
 	<script src="js/angular.js"> </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.min.js"></script>   
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
 	<script src="js/bootstrap.js"> </script>
 	<script src="js/ui-bootstrap-tpls-0.11.0.js"></script>
 	<script src="js/canvasjs.min.js"></script>
-	<script src="js/app.js"></script>
+	<script src="app.js"></script>
 
-</head>
-<body ng-app="bttr" ng-controller="bttrController">
-	<script>
-	$(function()
-	{	
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-		var fill = d3.scale.category20();
-		
-		var url="http://angelhackcincinnati.herokuapp.com/apiexample?callback=?";
-		$.getJSON(url,function(data){
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-controller="bttrController">
 
-			var words=$.map(data,function(d,idx) {return d.text.split(" ")});
-			console.log(words);
-			d3.layout.cloud().size([300, 300])
-			.words(words.map(function(d) {
-					return {text: d, size: 10 + Math.random() * 90};
-				}))
-			.padding(5)
-			.rotate(function() { return ~~(Math.random() * 2) * 90; })
-			.font("Impact")
-			.fontSize(function(d) { return d.size; })
-			.on("end", draw)
-			.start();
-		}).done(function() {
-			console.log( "second success" );
-		})
-		.fail(function(jqxhr, textStatus, error) {
-			console.log( textStatus+" "+error);
-		})
-		.always(function() {
-			console.log( "complete" );
-		});
+<input ng-model="item1" /> <button ng-click="populate1(item1)">Get Sentiment</button>
 
+  <div id="sent1" style="height: 300px; width: 100%;">
 
-
-		function draw(words) {
-			d3.select("body").append("svg")
-			.attr("width", 300)
-			.attr("height", 300)
-			.append("g")
-			.attr("transform", "translate(150,150)")
-			.selectAll("text")
-			.data(words)
-			.enter().append("text")
-			.style("font-size", function(d) { return d.size + "px"; })
-			.style("font-family", "Impact")
-			.style("fill", function(d, i) { return fill(i); })
-			.attr("text-anchor", "middle")
-			.attr("transform", function(d) {
-				return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-			})
-
-			.text(function(d) { return d.text; });
-		}
-	});
-</script>
-</body>
+<div id="cloud1" />
+  </body>
 </html>
