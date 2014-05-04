@@ -784,7 +784,6 @@ function bttrController ($scope)
 			.attr("transform", function(d) {
 				return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
 			})
-
 			.text(function(d) { return d.text; });
 		}
 		$.getJSON(url,function(data){
@@ -895,7 +894,7 @@ function bttrController ($scope)
 
 		function draw2(words) {
 			console.log("drawing2");
-			$("#cloud1").children("svg").remove();
+			$("#cloud2").children("svg").remove();
 			d3.select("#cloud2").append("svg")
 			.attr("width", 300)
 			.attr("height", 300)
@@ -911,7 +910,6 @@ function bttrController ($scope)
 			.attr("transform", function(d) {
 				return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
 			})
-
 			.text(function(d) { return d.text; });
 		}
 		$.getJSON(url,function(data){
