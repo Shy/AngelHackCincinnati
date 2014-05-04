@@ -725,11 +725,17 @@ function bttrController ($scope)
 				title:{
 					text: "Sentiment"              
 				},
-
+				axisX:{
+					tickThickness:0,
+				},
+				axisY:{
+					tickThickness:0,
+				},
       data: [  //array of dataSeries     
       { 
       	type: "column",
       	name: "Positive",
+      	color: "green",
       	dataPoints: [
       	{ label: tag, y: pos },
       	]
@@ -737,7 +743,8 @@ function bttrController ($scope)
       { 
 
       	type: "column",
-      	name: "Negative",                
+      	name: "Negative",
+      	color:"red" ,               
       	dataPoints: [
       	{ label: tag, y: neg },
       	]
@@ -877,7 +884,7 @@ function bttrController ($scope)
 			.words(uWords.map(function(d) {
 				return {text: d, size: wordsize[d]* 30};
 			}))
-			.padding(5)
+			.padding(0)
 			.rotate(function() { return ~~(Math.random() * 2) * 45; })
 			.font("Impact")
 			.fontSize(function(d) { return d.size; })
@@ -1003,7 +1010,7 @@ function bttrController ($scope)
 			.words(uWords.map(function(d) {
 				return {text: d, size: wordsize[d]* 30};
 			}))
-			.padding(5)
+			.padding(0)
 			.rotate(function() { return ~~(Math.random() * 2) * 45; })
 			.font("Impact")
 			.fontSize(function(d) { return d.size; })
