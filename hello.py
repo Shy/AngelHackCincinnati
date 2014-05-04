@@ -25,5 +25,5 @@ def hello():
         query = 'hackcincy'
     else:
         query = '#' + query
-    # return redirect(url_for('static', filename='example.txt'))
+    # return redirect(url_for('static', filename='example.json'))
     return get_tweets.get(num,tweettype,query)
