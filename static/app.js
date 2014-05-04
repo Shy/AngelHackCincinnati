@@ -784,6 +784,10 @@ function bttrController ($scope)
 
 				return $.grep(list,function(elem,idx)
 				{
+					if(!isNaN(elem))
+						return false;
+					if(elem.length <2)
+						return false;
 					if(elem.charAt(0)==='#'||elem.charAt(0)==='@')
 					{
 						//ignore hashtags
@@ -834,15 +838,35 @@ function bttrController ($scope)
 			console.log ("ncnt: "+ncnt);
 			console.log("pos: " + pos);
 			console.log("neg: " + neg);
+			$scope.drawchart("sent1",tag,pos,neg);
+
+			var wordsize={};
+			$.each(words, function(i,sel)
+			{
+				if(sel.charAt(0)=='#')
+					sel = sel.substr(1);
+				if(isNaN(wordsize[sel])||wordsize[sel]===null)
+				{
+					wordsize[sel]=1;
+					
+				}	else
+					{
+						wordsize[sel]++;
+					}
+				console.log("sel: "+sel);
+				console.log("count: "+wordsize[sel]);
+			});
+			console.log(wordsize);
 			
-
-//			
-
-
+			uWords=words.filter(function(value,index,self)
+			{
+				 return self.indexOf(value) === index;
+			} 
+				);
 			console.log(words);
 			d3.layout.cloud().size([300, 300])
-			.words(words.map(function(d) {
-				return {text: d, size: 10 + Math.random() * 90};
+			.words(uWords.map(function(d) {
+				return {text: d, size: wordsize[d]* 10};
 			}))
 			.padding(5)
 			.rotate(function() { return ~~(Math.random() * 2) * 90; })
@@ -850,7 +874,7 @@ function bttrController ($scope)
 			.fontSize(function(d) { return d.size; })
 			.on("end", draw)
 			.start();
-			$scope.drawchart("sent1",tag,pos,neg);
+
 
 		});
 };
