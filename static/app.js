@@ -718,7 +718,7 @@ function bttrController ($scope)
 	"yourself",
 	"yourselves",
 	"zero"];
-	$scope.drawchart=function(container,tag,pos,neg)
+	$scope.drawchart=function(container,mtag,pos,neg)
 	{
 
 			var chart = new CanvasJS.Chart(container, {            
@@ -743,7 +743,7 @@ function bttrController ($scope)
       	name: "Positive",
       	color: "green",
       	dataPoints: [
-      	{ label: tag, y: pos },
+      	{ label:"Positive", y: pos },
       	]
       },
       { 
@@ -752,7 +752,7 @@ function bttrController ($scope)
       	name: "Negative",
       	color:"red" ,               
       	dataPoints: [
-      	{ label: tag, y: neg },
+      	{ label: "Negative", y: neg },
       	]
       }
       ]
