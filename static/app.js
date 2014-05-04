@@ -727,9 +727,15 @@ function bttrController ($scope)
 				},
 				axisX:{
 					tickThickness:0,
+					lineThickness:0,
 				},
 				axisY:{
 					tickThickness:0,
+					lineThickness:0,
+					minimum:-1,
+					maximum:1,
+					interval:0.25,
+					gridThickness:0,
 				},
       data: [  //array of dataSeries     
       { 
@@ -756,12 +762,12 @@ function bttrController ($scope)
 
 	$scope.populate1 = function(tag,tag2)
 	{
-		if(tag==="" && tag2==="")
+		if(!tag&& !tag2)
 		{	alert("Please enter a value!");
 			return;
 		}
 
-		else if (tag==="")
+		else if (!tag)
 		{
 			tag=tag2;
 			tag2="";
@@ -769,8 +775,8 @@ function bttrController ($scope)
 
 		var fill = d3.scale.category20();
 
-		//url = "http:/angelhackcincinnati.herokuapp.com/api?number=10&hashtag="+tag+"&callback=?";
-		var url="http://angelhackcincinnati.herokuapp.com/apiexample?callback=?";
+		var url = "http:/angelhackcincinnati.herokuapp.com/api?number=10&hashtag="+tag+"&callback=?";
+		//var url="http://angelhackcincinnati.herokuapp.com/apiexample?callback=?";
 		
 
 		function draw(words) {
@@ -894,10 +900,10 @@ function bttrController ($scope)
 
 		});
 
-		if(tag2!=="")
+		if(tag2)
 		{
-			var url="http://angelhackcincinnati.herokuapp.com/apiexample?callback=?";
-		
+			//var url="http://angelhackcincinnati.herokuapp.com/apiexample?callback=?";
+			var url = "http:/angelhackcincinnati.herokuapp.com/api?number=10&hashtag="+tag2+"&callback=?";
 
 		function draw2(words) {
 			console.log("drawing2");
