@@ -864,8 +864,7 @@ function bttrController ($scope)
 					{
 						wordsize[sel]++;
 					}
-				console.log("sel: "+sel);
-				console.log("count: "+wordsize[sel]);
+				
 			});
 			console.log(wordsize);
 			
@@ -895,7 +894,7 @@ function bttrController ($scope)
 		
 
 		function draw2(words) {
-			console.log("drawing");
+			console.log("drawing2");
 			$("#cloud1").children("svg").remove();
 			d3.select("#cloud2").append("svg")
 			.attr("width", 300)
@@ -992,8 +991,7 @@ function bttrController ($scope)
 					{
 						wordsize[sel]++;
 					}
-				console.log("sel: "+sel);
-				console.log("count: "+wordsize[sel]);
+	
 			});
 			console.log(wordsize);
 			
@@ -1011,7 +1009,7 @@ function bttrController ($scope)
 			.rotate(function() { return ~~(Math.random() * 2) * 90; })
 			.font("Impact")
 			.fontSize(function(d) { return d.size; })
-			.on("end", draw)
+			.on("end", draw2)
 			.start();
 
 
